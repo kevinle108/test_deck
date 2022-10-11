@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +43,13 @@ namespace test_deck
 
             foreach (char c in src)
             {
-                GeneratePermutations(result + c, src.Trim(c)); ;
+                var savedResult = result;
+                var savedSrc = src;
+                result = result + c;
+                src = src.Replace(c.ToString(), "");
+                GeneratePermutations(result, src);
+                result = savedResult;
+                src = savedSrc;
             }
         }
 
