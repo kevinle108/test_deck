@@ -36,20 +36,13 @@ namespace test_deck
             if (src.Length <= 1)
             {
                 result += src;
-                src = "";
                 Console.WriteLine(result);
                 return;
             }
 
             foreach (char c in src)
             {
-                var savedResult = result;
-                var savedSrc = src;
-                result = result + c;
-                src = src.Replace(c.ToString(), "");
-                GeneratePermutations(result, src);
-                result = savedResult;
-                src = savedSrc;
+                GeneratePermutations(result + c, src.Replace(c.ToString(), ""));
             }
         }
 
