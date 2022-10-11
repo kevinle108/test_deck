@@ -9,6 +9,8 @@ namespace test_deck
 {
     internal class Permutation
     {
+        List<string> permutations = new List<string>();
+
         public Permutation(int n)
         {
             var src = "";
@@ -16,7 +18,21 @@ namespace test_deck
             {
                 src += i;
             }
-            GeneratePermutations("", src);
+            List<string> result = new List<string>();
+            GeneratePermutations(result, "", src);
+            permutations = result;
+        }
+
+        public string GetSingle(int i)
+        {           
+            if (i >= 0 && i < permutations.Count)
+            {
+                return permutations[i];
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public List<int> First()
@@ -31,33 +47,32 @@ namespace test_deck
             return new List<int>();
         }
 
-        void GeneratePermutations(string result, string src)
+        List<string> GeneratePermutations(List<string> results, string build, string src)
         {
             if (src.Length <= 1)
-            {
-                result += src;
-                Console.WriteLine(result);
-                return;
+            {                
+                results.Add(build += src);
+                return new List<string>();
             }
 
             foreach (char c in src)
             {
-                GeneratePermutations(result + c, src.Replace(c.ToString(), ""));
+                var _build = build + c;
+                var _src = src.Replace(c.ToString(), "");
+                GeneratePermutations(results, _build, _src);
             }
+            return results;
         }
 
-        public void PrintPermutations(List<string> permutations)
+        public void PrintPermutations()
         {
-            Console.WriteLine("[ ");
+            Console.WriteLine("[");
             foreach (var item in permutations)
             {
-                string line = "";
-                foreach (var number in item)
-                {
-                    line += $"{number} ";
-                }
+                Console.WriteLine("  " + item);
             }
             Console.WriteLine("]");
+            Console.WriteLine($"\nNumber of permutations: {permutations.Count}");
         }
     }
 }
