@@ -24,7 +24,7 @@ namespace test_deck
         }
 
         public string GetSingle(int i)
-        {           
+        {
             if (i >= 0 && i < permutations.Count)
             {
                 return permutations[i];
@@ -33,18 +33,6 @@ namespace test_deck
             {
                 return null;
             }
-        }
-
-        public List<int> First()
-        {
-            // TODO
-            return new List<int>();
-        }
-
-        public List<int> Next()
-        {
-            // TODO
-            return new List<int>();
         }
 
         List<string> GeneratePermutations(List<string> results, string build, string src)
