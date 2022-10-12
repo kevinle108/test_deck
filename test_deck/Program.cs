@@ -1,5 +1,40 @@
-﻿// See https://aka.ms/new-console-template for more information
-using test_deck;
+﻿using test_deck;
 
-var test = new Permutation(4);
-test.PrintPermutations();
+//RunPermutations();
+RunCombinations();
+
+static void RunPermutations()
+{
+    int n = 0;
+    string input = "";
+    while (input != "x")
+    {
+        Console.WriteLine("How many rankings to generate permutations for?");
+        input = Console.ReadLine();
+        int.TryParse(input, out n);
+
+        var test = new RankingPermutation(n);
+        test.Print();
+        Console.WriteLine("------------------------------------------------");
+    }
+}
+
+static void RunCombinations()
+{
+    string input = "";
+    int size = 0;
+    int select = 0;
+
+    while (input != "x")
+    {
+        Console.WriteLine("Combination: Enter set size:");
+        input = Console.ReadLine();
+        int.TryParse(input, out size);
+        Console.WriteLine("Enter selection size:");
+        input = Console.ReadLine();
+        int.TryParse(input, out select);
+        var test = new CandidateCombination(select, size);
+        test.Print();
+        Console.WriteLine("------------------------------------------------");
+    }
+}

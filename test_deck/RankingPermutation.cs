@@ -7,20 +7,18 @@ using System.Threading.Tasks;
 
 namespace test_deck
 {
-    internal class Permutation
+    internal class RankingPermutation
     {
         List<string> permutations = new List<string>();
 
-        public Permutation(int n)
+        public RankingPermutation(int n)
         {
             var src = "";
             for (int i = 1; i <= n; i++)
             {
                 src += i;
             }
-            List<string> result = new List<string>();
-            GeneratePermutations(result, "", src);
-            permutations = result;
+            GeneratePermutations("", src);
         }
 
         public string GetSingle(int i)
@@ -35,24 +33,24 @@ namespace test_deck
             }
         }
 
-        List<string> GeneratePermutations(List<string> results, string build, string src)
+        void GeneratePermutations( string build, string src)
         {
-            if (src.Length <= 1)
-            {                
-                results.Add(build += src);
-                return new List<string>();
-            }
-
-            foreach (char c in src)
+            if (src.Length == 0)
             {
-                var _build = build + c;
-                var _src = src.Replace(c.ToString(), "");
-                GeneratePermutations(results, _build, _src);
+                permutations.Add(build);           
             }
-            return results;
+            else
+            {
+                foreach (char c in src)
+                {
+                    var _build = build + c;
+                    var _src = src.Replace(c.ToString(), "");
+                    GeneratePermutations(_build, _src);
+                }
+            }            
         }
 
-        public void PrintPermutations()
+        public void Print()
         {
             Console.WriteLine("[");
             foreach (var item in permutations)
