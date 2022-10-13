@@ -21,7 +21,8 @@ namespace test_deck
             {
                 src += i;
             }
-            Console.WriteLine($"Set: {src}");
+            Console.WriteLine($"\nSet: {src}");
+            Console.WriteLine($"Choosing {select} out of {size}\n");
             GenerateCombinations("", src);
         }
 

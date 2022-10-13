@@ -35,6 +35,6 @@ static void RunCombinations()
         int.TryParse(input, out select);
         var test = new CandidateCombination(select, size);
         test.Print();
-        Console.WriteLine("------------------------------------------------");
+        Console.WriteLine("------------------------------------------------\n");
     }
 }
