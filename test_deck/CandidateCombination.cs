@@ -23,8 +23,8 @@ namespace test_deck
             {
                 src += i;
             }
-            Console.WriteLine($"\nSet: {src}");
-            Console.WriteLine($"Choosing {select} out of {size}\n");
+            //Console.WriteLine($"\nSet: {src}");
+            //Console.WriteLine($"Choosing {select} out of {size}\n");
             GenerateCombinations("", src);
         }
 

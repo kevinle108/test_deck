@@ -10,8 +10,8 @@ namespace test_deck
     {
         int ward = 0;
         List<int> contests = new List<int>();
-        string[] lines = {};
-        
+        List<string> lines = new List<string>();
+
         public TestDeck(int ward, List<int> contests)
         {
             this.ward = ward;
@@ -19,16 +19,33 @@ namespace test_deck
             GenerateContests();
         }
 
-
-
         void GenerateContests()
         {
+            //for (int i = 0; i < contests.Count; i++)
+            //{
+            //    Console.WriteLine("--------------------------------------");
+            //    Console.WriteLine($"WARD {ward}, CONTEST INDEX {i}");
+            //    GenerateSelections(i, contests[i]);
+            //}
+
             for (int i = 0; i < contests.Count; i++)
             {
                 Console.WriteLine("--------------------------------------");
                 Console.WriteLine($"WARD {ward}, CONTEST INDEX {i}");
                 GenerateSelections(i, contests[i]);
+                System.IO.File.WriteAllLines($"{ward}-{i}.txt", lines);
+                lines = new List<string>();
             }
+
+            //for (int i = 0; i < contests.Count; i++)
+            //{
+            //    int contestIndex = i;
+            //    Console.WriteLine("----------------------------------------");
+            //    Console.WriteLine($"WARD {ward}, CONTEST INDEX {contestIndex}");
+            //    GenerateSelections(contestIndex, contests[i]);
+            //    await File.WriteAllLinesAsync($"{ward}-{contestIndex}.txt", lines);
+            //    lines = new List<string>();
+            //}
         }
 
         void GenerateSelections(int contestIndex, int numOfCandidates)
@@ -58,6 +75,7 @@ namespace test_deck
                 {
                     buildLine = $"{ward} || {contestIndex}";
                     Console.WriteLine(buildLine);
+                    lines.Add(buildLine);
                 } else
                 {
                     combinationObj = new CandidateCombination(select, numOfCandidates);
@@ -77,6 +95,7 @@ namespace test_deck
                             candidatesWithRank = candidates.Zip(rankings, (candidate, ranking) => $"{candidate}-{ranking}").ToList();
                             buildLine = $"{ward} || {contestIndex} | " + String.Join(", ", candidatesWithRank);
                             Console.WriteLine(buildLine);
+                            lines.Add(buildLine);
                         }
                     }
                 }                
