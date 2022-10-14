@@ -53,7 +53,6 @@ namespace test_deck
             for (int select = 0; select <= numOfCandidates; select++)
             {
                 Console.WriteLine($"Choosing {select} out of {numOfCandidates} possible candidates:");
-
                 if (select == 0)
                 {
                     buildLine = $"{ward} || {contestIndex}";
