@@ -21,13 +21,6 @@ namespace test_deck
 
         void GenerateContests()
         {
-            //for (int i = 0; i < contests.Count; i++)
-            //{
-            //    Console.WriteLine("--------------------------------------");
-            //    Console.WriteLine($"WARD {ward}, CONTEST INDEX {i}");
-            //    GenerateSelections(i, contests[i]);
-            //}
-
             for (int i = 0; i < contests.Count; i++)
             {
                 Console.WriteLine("--------------------------------------");
@@ -36,21 +29,11 @@ namespace test_deck
                 System.IO.File.WriteAllLines($"{ward}-{i}.txt", lines);
                 lines = new List<string>();
             }
-
-            //for (int i = 0; i < contests.Count; i++)
-            //{
-            //    int contestIndex = i;
-            //    Console.WriteLine("----------------------------------------");
-            //    Console.WriteLine($"WARD {ward}, CONTEST INDEX {contestIndex}");
-            //    GenerateSelections(contestIndex, contests[i]);
-            //    await File.WriteAllLinesAsync($"{ward}-{contestIndex}.txt", lines);
-            //    lines = new List<string>();
-            //}
         }
 
         void GenerateSelections(int contestIndex, int numOfCandidates)
         {
-            // create source for candidates
+            // create source string representing candidates
             string src = "";
             for (int i = 1; i <= numOfCandidates; i++)
             {
