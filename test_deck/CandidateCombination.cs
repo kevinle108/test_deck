@@ -9,8 +9,10 @@ namespace test_deck
     internal class CandidateCombination
     {
         int size;
-        int select;
+        int select;        
         List<string> combinations = new List<string>();
+
+        public List<string> Combinations => combinations;
 
         public CandidateCombination(int select, int size)
         {
@@ -25,6 +27,7 @@ namespace test_deck
             Console.WriteLine($"Choosing {select} out of {size}\n");
             GenerateCombinations("", src);
         }
+
 
         void GenerateCombinations(string build, string src)
         {

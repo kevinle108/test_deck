@@ -1,7 +1,8 @@
 ﻿using test_deck;
 
 //RunPermutations();
-RunCombinations();
+//RunCombinations();
+RunTestDeck();
 
 static void RunPermutations()
 {
@@ -37,4 +38,11 @@ static void RunCombinations()
         test.Print();
         Console.WriteLine("------------------------------------------------\n");
     }
+}
+
+static void RunTestDeck()
+{
+    int ward = 6;
+    List<int> contests = new List<int>() { 4, 5};
+    var testDeckObj = new TestDeck(ward, contests);
 }

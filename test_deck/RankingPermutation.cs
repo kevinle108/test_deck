@@ -11,6 +11,8 @@ namespace test_deck
     {
         List<string> permutations = new List<string>();
 
+        public List<string> Permutations => permutations;
+
         public RankingPermutation(int n)
         {
             var src = "";
