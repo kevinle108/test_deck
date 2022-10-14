@@ -44,6 +44,7 @@ namespace test_deck
             List<string> candidateCombinations; ;
             RankingPermutation rankingObj;
             List<string> rankingPermutations;
+            int writeinIndex = numOfCandidates - 1;
             string buildLine = "";
             List<string> candidates;
             List<string> rankings;
@@ -74,7 +75,9 @@ namespace test_deck
                         foreach (string rankingArrangement in rankingPermutations)
                         {
                             rankings = rankingArrangement.ToCharArray().Select(c => c.ToString()).ToList();
-                            candidatesWithRank = candidates.Zip(rankings, (candidate, ranking) => $"{candidate}-{ranking}").ToList();
+                            candidatesWithRank = candidates.Zip(rankings, (candidate, ranking) => buildCandidateRankings(candidate, ranking, writeinIndex)).ToList();
+
+                            //candidatesWithRank = candidates.Zip(rankings, (candidate, ranking) => $"{candidate}-{ranking}").ToList();
                             buildLine = $"{ward} || {contestIndex} | " + String.Join(", ", candidatesWithRank);
                             Console.WriteLine(buildLine);
                             lines.Add(buildLine);
@@ -82,6 +85,14 @@ namespace test_deck
                     }
                 }                
             }
+        }        
+
+        string buildCandidateRankings(string candidate, string ranking, int writeinIndex)
+        {
+            if (candidate == writeinIndex.ToString()) {
+                return $"{candidate}-{ranking}-ABC";
+            }
+            else return $"{candidate}-{ranking}";            
         }
     }
 }
