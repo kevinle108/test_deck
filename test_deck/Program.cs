@@ -1,8 +1,32 @@
 ﻿using test_deck;
 
-//RunPermutations();
-//RunCombinations();
 RunTestDeck();
+
+static void RunTestDeck()
+{
+    var ward1 = new TestDeck(1, new List<int>() { 6, 2 });
+
+    var ward2 = new TestDeck(2, new List<int>() { 6, 2});
+
+    var ward3 = new TestDeck(3, new List<int>() { 6, 3});
+
+    var ward4 = new TestDeck(4, new List<int>() { 6, 2});
+
+    var ward5 = new TestDeck(5, new List<int>() { 6, 3});
+
+    var ward6 = new TestDeck(6, new List<int>() { 6, 2});
+}
+
+
+
+
+
+
+
+
+
+
+
 
 static void RunPermutations()
 {
@@ -38,11 +62,4 @@ static void RunCombinations()
         test.Print();
         Console.WriteLine("------------------------------------------------\n");
     }
-}
-
-static void RunTestDeck()
-{
-    int ward = 6;
-    List<int> contests = new List<int>() { 4, 5};
-    var testDeckObj = new TestDeck(ward, contests);
 }
