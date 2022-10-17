@@ -1,0 +1,26 @@
+﻿[
+	{
+		"ward": 1,
+		"contests": [ 6, 2 ]
+	},
+	{
+		"ward": 2,
+		"contests": [ 6, 2 ]
+	},
+	{
+		"ward": 3,
+		"contests": [ 6, 3 ]
+	},
+	{
+		"ward": 4,
+		"contests": [ 6, 2 ]
+	},
+	{
+		"ward": 5,
+		"contests": [ 6, 3 ]
+	},
+	{
+		"ward": 6,
+		"contests": [ 6, 2 ]
+	}
+]

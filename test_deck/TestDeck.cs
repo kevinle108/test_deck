@@ -56,7 +56,7 @@ namespace test_deck
                 Console.WriteLine($"Choosing {select} out of {numOfCandidates} possible candidates:");
                 if (select == 0)
                 {
-                    buildLine = $"{ward} || {contestIndex}";
+                    buildLine = $"{ward} ||";
                     Console.WriteLine(buildLine);
                     lines.Add(buildLine);
                 } else
